@@ -11,12 +11,10 @@ procedure Main is
    package DI renames Del.Initializers;
    package DOp renames Del.Operators;
 
-   L : D.Func_Access_T := new DOp.Linear_T;
-   R : D.Func_Access_T := new DOp.ReLU_T;
+   --  L : D.Func_Access_T := new DOp.Linear_T;
+   --  R : D.Func_Access_T := new DOp.ReLU_T;
 
-   type Funcs_T is array (1 .. 2) of D.Func_Access_T;
-
-   Fs : Funcs_T := (L, R);
+   Fs : D.Funcs_T := (new DOp.Linear_T, new DOp.ReLU_T);
 
 begin
    for I in Fs'Range loop

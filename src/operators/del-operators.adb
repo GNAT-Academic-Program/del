@@ -1,13 +1,12 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
+with Orka.Numerics.Singles.Tensors.CPU; use Orka.Numerics.Singles.Tensors.CPU;
+
 package body Del.Operators is
 
    overriding function Forward (L : Linear_T; X : Tensor_T) return Tensor_T is
-   begin
-      Put_Line (L.Map'Image & " Forward from Linear");
-      return X;
-   end Forward;
-
+      (X ** L.Map ("Weights") + L.Map ("Bias"));
+   
    overriding function Backward (L : Linear_T; Dy : Tensor_T) return Tensor_T is
    begin
       return Dy;
