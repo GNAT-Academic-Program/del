@@ -13,3 +13,6 @@ executables = ["del"]
 
 [[depends-on]]
 orka_tensors_cpu = "*"
+
+[build-switches]
+"*".style_checks = "No"
